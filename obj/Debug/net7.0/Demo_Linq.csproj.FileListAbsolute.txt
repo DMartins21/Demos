@@ -1,0 +1,15 @@
+C:\Users\davi_\OneDrive\Área de Trabalho\Estudos\C#\Repos\Demo_Linq\bin\Debug\net7.0\Demo_Linq.exe
+C:\Users\davi_\OneDrive\Área de Trabalho\Estudos\C#\Repos\Demo_Linq\bin\Debug\net7.0\Demo_Linq.deps.json
+C:\Users\davi_\OneDrive\Área de Trabalho\Estudos\C#\Repos\Demo_Linq\bin\Debug\net7.0\Demo_Linq.runtimeconfig.json
+C:\Users\davi_\OneDrive\Área de Trabalho\Estudos\C#\Repos\Demo_Linq\bin\Debug\net7.0\Demo_Linq.dll
+C:\Users\davi_\OneDrive\Área de Trabalho\Estudos\C#\Repos\Demo_Linq\bin\Debug\net7.0\Demo_Linq.pdb
+C:\Users\davi_\OneDrive\Área de Trabalho\Estudos\C#\Repos\Demo_Linq\obj\Debug\net7.0\Demo_Linq.csproj.AssemblyReference.cache
+C:\Users\davi_\OneDrive\Área de Trabalho\Estudos\C#\Repos\Demo_Linq\obj\Debug\net7.0\Demo_Linq.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\davi_\OneDrive\Área de Trabalho\Estudos\C#\Repos\Demo_Linq\obj\Debug\net7.0\Demo_Linq.AssemblyInfoInputs.cache
+C:\Users\davi_\OneDrive\Área de Trabalho\Estudos\C#\Repos\Demo_Linq\obj\Debug\net7.0\Demo_Linq.AssemblyInfo.cs
+C:\Users\davi_\OneDrive\Área de Trabalho\Estudos\C#\Repos\Demo_Linq\obj\Debug\net7.0\Demo_Linq.csproj.CoreCompileInputs.cache
+C:\Users\davi_\OneDrive\Área de Trabalho\Estudos\C#\Repos\Demo_Linq\obj\Debug\net7.0\Demo_Linq.dll
+C:\Users\davi_\OneDrive\Área de Trabalho\Estudos\C#\Repos\Demo_Linq\obj\Debug\net7.0\refint\Demo_Linq.dll
+C:\Users\davi_\OneDrive\Área de Trabalho\Estudos\C#\Repos\Demo_Linq\obj\Debug\net7.0\Demo_Linq.pdb
+C:\Users\davi_\OneDrive\Área de Trabalho\Estudos\C#\Repos\Demo_Linq\obj\Debug\net7.0\Demo_Linq.genruntimeconfig.cache
+C:\Users\davi_\OneDrive\Área de Trabalho\Estudos\C#\Repos\Demo_Linq\obj\Debug\net7.0\ref\Demo_Linq.dll
