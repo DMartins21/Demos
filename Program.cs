@@ -27,62 +27,39 @@ namespace Exercicios
                 new Product() { Id = 11, Name = "Level", Price = 70.0M, Category = c1 }
             };
 
-            var r1 = products.Where(p => p.Category.Tier == 2);
-            Print("Todos no Tier 2:", r1);
-            Console.WriteLine("\n");
+            var r1 = from p in products
+                     where p.Category.Tier == 1 && p.Price < 900.0M
+                     select p;
 
-            var r2 = products.Where(p => p.Category.Tier == 1 && p.Price == 1100.0M);
-            Print("Tier 1 e Preco igual a 1100:", r2);
-            Console.WriteLine("\n");
+            var r2 = from p in products where p.Category.Name == "Tools" select p.Name;
 
-            var r3 = products.Where(p => p.Category.Name == "Tools");
-            Print("Todos na categoria Tools:", r3);
-            Console.WriteLine("\n");
+            var r3 = from p in products where p.Name[0] == 'C' 
+                     select new { p.Name, p.Price, Category_Name = p.Category.Name };
 
-            var r4 = products.Where(p => p.Category.Name == "Eletronics");
-            Print("Todos na categoria Eletronics:", r4);
-            Console.WriteLine("\n");
+            var r4 = from p in products
+                     where p.Category.Tier == 1
+                     orderby p.Name
+                     orderby p.Price
+                     select p;
 
-            var r5 = products.Where(p => p.Category.Name == "Tools").Union(products.Where
-                (p => p.Category.Name == "Eletronics"));
-            Print("Todos na Categoria Eletronics e Tools:", r5);
-            Console.WriteLine("\n");
-            var r6 = products.Where(p => p.Price >= 1000.0M && p.Price <= 1500.0M);
-            Print("Preco entre R$1000 e R$1500", r6);
-            Console.WriteLine("\n");
-            var r7 = products.Where(p => p.Name[0] == 'C').Select(p => new {
-                p.Name,
-                p.Price,
-                CategoryName = p.Category.Name
-            });
-            Print("Nomes começados com 'C", r7);
-            Console.WriteLine("\n");
+            var r5 = (from p in r4 select p).Skip(2).Take(4);
 
-            var r8 = products.Where(p => p.Category.Tier == 1).OrderBy(p => p.Price).ThenBy(p => p.Name);
-            Print("Tier 1 ordenado por preço e nome", r8);
-            Console.WriteLine("\n");
+            var r6 = from p in products group p by p.Category;
 
-            var r9 = products.Where(p => p.Id == 3).SingleOrDefault();
-            Console.WriteLine("First or Default: \n" + r9 + "\n");
-
-            var r10 = products.Where(p => p.Id == 1).First();
-            Console.WriteLine("First:\n" + r10 + "\n");
-
-            var r11 = products.Max(p => p.Price);
-            var r12 = products.Min(p => p.Price);
-            Console.WriteLine("Preço minimo e Maximo:" + r12 + ' ' + r11);
-
-            var r13 = products.Where(p => p.Category.Id == 1).Sum(p => p.Price);
-            Console.WriteLine("Soma dos preços da categoria 1:" + r13 + "\n");
-
-            var r14 = products.Where(p => p.Category.Id == 3).Average(p => p.Price);
-            Console.WriteLine("Média dos preços da categoria 3:" + r14 + "\n");
-
-            var r15 = products.GroupBy(p => p.Category);
-            foreach (IGrouping<Category, Product> group in r15)
+            Print("Tier 1 e Preço menor que 900", r1);
+            Console.WriteLine();
+            Print("Tools:", r2);
+            Console.WriteLine();
+            Print("Nomes começados com 'C'", r3);
+            Console.WriteLine();
+            Print("Ordenar por preço e por nome", r4);
+            Console.WriteLine();
+            Print("Tier 1 Order By Price then by skip 2 take 4", r5);
+            Console.WriteLine();
+            foreach(IGrouping<Category, Product> group in r6)
             {
-                Console.WriteLine($"Category: {group.Key.Name}:");
-                foreach (Product p in group)
+                Console.WriteLine($"Category {group.Key.Name}");
+                foreach(Product p in group)
                 {
                     Console.WriteLine(p);
                 }
@@ -93,6 +70,7 @@ namespace Exercicios
         static void Print<T>(string message, IEnumerable<T> collection)
         {
             Console.WriteLine(message);
+            Console.WriteLine("ID|Name|Price|Category_Name|Tier");
             foreach (var item in collection)
             {
                 Console.WriteLine(item);
@@ -107,12 +85,7 @@ namespace Exercicios
             public required decimal Price { get; set; }
             public Category Category { get; set; }
 
-            public override string ToString()
-            {
-                return "ID | Name | Price | Category_Name | Tier" + "\n"
-                    + Id + " | " + Name + " | " + Price.ToString("C", CultureInfo.CreateSpecificCulture("pt-BR")) + " | "
-                    + Category.Name + " | " + Category.Tier;
-            }
+            public override string ToString() => $"{Id}|{Name}|{Price.ToString("C",CultureInfo.CreateSpecificCulture("pt-BR"))}|{Category.Name}|{Category.Tier}";
         }
     }
 }
